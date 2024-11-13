@@ -1,9 +1,4 @@
-<h1>{{ question.question_text }}</h1>
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }}</li>
-{% endfor %}
-</ul>
+
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token %}
@@ -17,3 +12,7 @@
     </fieldset>
     <input type="submit" value="Vote">
     </form>
+
+<section>
+    <a href="{% url 'polls:index' %}" style="text-decoration: none;">Wróć do listy pytań</a>
+</section>
